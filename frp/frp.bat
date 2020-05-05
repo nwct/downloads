@@ -1,10 +1,11 @@
-goto windows 2>nul
+goto :windows 2>nul
+
 
 linux(){
 ERR=""
 rm -rf nul >/dev/null 2>&1
 rm -rf nul? >/dev/null 2>&1
-curl -# -k -o $(basename $0) https://raw.githubusercontent.com/nwct/downloads/master/frp/frp.bat
+curl -# -L -k -o $(basename $0) http://www.lu8.win/downloads/frp/frp.bat
 choose(){
 clear
 echo "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::"
@@ -14,7 +15,7 @@ echo "::      æœ¬è„šæœ¬ç”±  â˜†å¤¢å¹»ç…‹æ¶³â˜†  ç¼–å†™ï¼Œå¦‚æœ‰ç–‘é—®è¯·è”ç³»æœ
 echo "::      è½¬è½½è¯·ä¸è¦åˆ é™¤æœ¬ä¿¡æ¯ï¼      http://www.lu8.win                      ::"
 echo "::                                                                          ::"
 echo "::                                                                          ::"
-echo "::      ä½œè€…ï¼šâ˜†å¤¢å¹»ç…‹æ¶³â˜†        QQç¾¤:114888319     2019å¹´4æœˆ25æ—¥            ::"
+echo "::      ä½œè€…ï¼šâ˜†å¤¢å¹»ç…‹æ¶³â˜†        QQç¾¤:114888319     2020å¹´05æœˆ05æ—¥           ::"
 echo "::                                                                          ::"
 echo "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::"
 echo ""
@@ -30,12 +31,12 @@ read num
 case "$num" in
 	1)
 		rm -rf frps.bat	
-		curl -# -k -o frps.bat https://raw.githubusercontent.com/nwct/downloads/master/frp/linux-386/frps.bat
+		curl -# -L -k -o frps.bat  http://www.lu8.win/downloads/frp/linux-386/frps.bat
 		sh frps.bat			
 		;;
 	2)
 		rm -rf frpc.bat	
-		curl -# -k -o frpc.bat https://raw.githubusercontent.com/nwct/downloads/master/frp/linux-386/frpc.bat		
+		curl -# -L -k -o frpc.bat  http://www.lu8.win/downloads/frp/linux-386/frpc.bat		
 		sh frpc.bat			
 		;;
 	3)
@@ -56,19 +57,19 @@ exit
 :windows
 @echo off
 set path=%SystemRoot%\system32;%path%
-title frpÆô¶¯½Å±¾ ×÷Õß£º¡î‰ô»ÃŸ“›ï¡î QQÈº:114888319  2019Äê4ÔÂ25ÈÕ 
+title frpÆô¶¯½Å±¾ ×÷Õß£º¡î‰ô»ÃŸ“›ï¡î QQÈº:114888319  2020Äê05ÔÂ05ÈÕ 
 COLOR 02
 cls
 %~d0
-cd %~dp0
-certutil -urlcache -split -f https://raw.githubusercontent.com/nwct/downloads/master/frp/frp-version frp-version.bat >nul
+cd /d %~dp0
+certutil -urlcache -split -f http://www.lu8.win/downloads/frp/frp-version frp-version.bat >nul
 call frp-version.bat
 del frp-version.bat
-set client=20190425
+set client=20200505
 if "%server%" NEQ "%client%" ( 
 echo ×îÐÂ°æ±¾£º%server%
 echo ¼´½«¸üÐÂ 
-certutil -urlcache -split -f https://raw.githubusercontent.com/nwct/downloads/master/frp/frp.bat %~nx0 >nul
+certutil -urlcache -split -f http://www.lu8.win/downloads/frp/frp.bat %~nx0 >nul
 %~nx0
 )
 goto moshi
@@ -82,7 +83,7 @@ ECHO.::      ±¾½Å±¾ÓÉ  ¡î‰ô»ÃŸ“›ï¡î  ±àÐ´£¬ÈçÓÐÒÉÎÊÇëÁªÏµ±¾ÈË£¡                 
 ECHO.::      ×ªÔØÇë²»ÒªÉ¾³ý±¾ÐÅÏ¢£¡  http://www.lu8.win                          :: 
 ECHO.::                                                                          ::
 ECHO.::                                                                          ::
-ECHO.::      ×÷Õß£º¡î‰ô»ÃŸ“›ï¡î        QQÈº:114888319      2019Äê4ÔÂ25ÈÕ         ::
+ECHO.::      ×÷Õß£º¡î‰ô»ÃŸ“›ï¡î        QQÈº:114888319      2020Äê05ÔÂ05ÈÕ        ::
 ECHO.::                                                                          ::
 ECHO.::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ECHO.
@@ -106,10 +107,10 @@ set frp=frpc
 goto start
 
 :start
-cd %~dp0
+cd /d %~dp0
 del %frp%.bat
 if exist %frp% goto run
-certutil -urlcache -split -f https://raw.githubusercontent.com/nwct/downloads/master/frp/windows-386/%frp%.bat >nul
+certutil -urlcache -split -f http://www.lu8.win/downloads/frp/windows-386/%frp%.bat >nul
 goto run
 
 :run
