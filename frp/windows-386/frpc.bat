@@ -1,7 +1,7 @@
 goto windows
 :windows
 set path=%SystemRoot%\system32;%path%
-set date1=2019年4月25日
+set date1=2020年05月05日
 %~d0
 @echo off
 title frp启动脚本 作者：☆夢幻煋涳☆ QQ群:114888319  %date1%  
@@ -34,14 +34,14 @@ ECHO.
 echo  请选择程序版本：
 echo      1、V0.9.3
 echo      2、V0.16.1
-echo      3、V0.21.0
+echo      3、V0.27.0
 echo.
 echo     【注意：客户端与服务端版本保持一致，否则不兼容】
 set num=0
 set /p num=
 if %num%==1 set version=0.9.3
 if %num%==2 set version=0.16.1
-if %num%==3 set version=0.21.0
+if %num%==3 set version=0.27.0
 if /i not %num%==1 (
 if /i not %num%==2 (
 if /i not %num%==3 (
@@ -118,7 +118,7 @@ set protocol=tcp
 
 set /p server_addr=服务器地址【默认：%server_addr%】：
 set /p server_port=服务器端口【默认：%server_port%】：
-if /i %version%==0.21.0 (
+if /i %version%==0.27.0 (
 	set /p token=连接密码【默认：%token%】：
 	set /p login_fail_exit=断线后自动重连开关[true/flase]【默认：%login_fail_exit%】：
 	set /p protocol=连接使用的协议[tcp/kcp]【默认：%protocol%】：
@@ -133,7 +133,7 @@ if /i %version%==0.21.0 (
 
 ECHO [common] >"frpc.ini"
 ECHO server_addr = %server_addr% >>"frpc.ini"
-if /i %version%==0.21.0 (
+if /i %version%==0.27.0 (
 ECHO token = %token% >>"frpc.ini"
 ECHO login_fail_exit = %login_fail_exit% >>"frpc.ini"
 ECHO protocol = %protocol% >>"frpc.ini"
@@ -164,7 +164,7 @@ ECHO.::      本脚本由  ☆夢幻煋涳☆  编写，如有疑问请联系本人！                 
 ECHO.::      转载请不要删除本信息！  http://www.lu8.win                          :: 
 ECHO.::                                                                          ::
 ECHO.::                                                                          ::
-ECHO.::      作者：☆夢幻煋涳☆        QQ:372763861      2017年12月10日          ::
+ECHO.::      作者：☆夢幻煋涳☆        QQ:372763861      %date1%          ::
 ECHO.::                                                                          ::
 ECHO.::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ECHO.
@@ -401,7 +401,7 @@ cd %~dp0
 if exist frpc.exe goto run
 set lujing=%~dp0
 bitsadmin /reset /allusers
-bitsadmin /transfer frpc%version% /PRIORITY FOREGROUND "https://raw.githubusercontent.com/nwct/downloads/master/frp/windows-386/%version%/frpc.exe" "%lujing%frpc.exe"
+bitsadmin /transfer frpc%version% /PRIORITY FOREGROUND "http://www.lu8.win/downloads/frp/windows-386/%version%/frpc.exe" "%lujing%frpc.exe"
 goto start
 
 

@@ -1,7 +1,7 @@
 goto windows
 :windows
 set path=%SystemRoot%\system32;%path%
-set date1=2019年4月25日
+set date1=2020年05月05日
 @echo off
 title frps启动脚本 作者：☆夢幻煋涳☆ QQ群:114888319  %date1% 
 COLOR 02
@@ -28,14 +28,14 @@ ECHO.
 echo  请选择程序版本：
 echo      1、V0.9.3
 echo      2、V0.16.1
-echo      3、V0.21.0
+echo      3、V0.27.0
 echo.
 echo     【注意：客户端与服务端版本保持一致，否则不兼容】
 set num=0
 set /p num=
 if %num%==1 set version=0.9.3
 if %num%==2 set version=0.16.1
-if %num%==3 set version=0.21.0
+if %num%==3 set version=0.27.0
 if /i not %num%==1 (
 if /i not %num%==2 (
 if /i not %num%==3 (
@@ -158,7 +158,7 @@ ECHO.请输入frps服务器信息，如果使用默认值请直接回车！
 ECHO.
 
 
-if %version%==0.21.0 (
+if %version%==0.27.0 (
 set privilege=
 set token=frp888
 set allow_ports=1-65535
@@ -190,7 +190,7 @@ set /p dashboard_port=查询连接状态端口【默认：%dashboard_port%】：
 set /p dashboard_user=查询连接状态的用户名【默认：%dashboard_user%】：
 set /p dashboard_pwd=查询连接状态的密码【默认：%dashboard_pwd%】：
 set /p log_max_days=日志记录天数【默认：%log_max_days%】：
-if /i %version%==0.21.0 (
+if /i %version%==0.27.0 (
 	set /p max_ports_per_client=允许客户端最大连接数:【默认：%max_ports_per_client%】：
 	set /p token=连接密码【默认：%token%】：
 	set /p allow_ports=可用端口范围【默认：%allow_ports%】：
@@ -216,7 +216,7 @@ ECHO dashboard_user = %dashboard_user% >>"frps.ini"
 ECHO dashboard_pwd = %dashboard_pwd% >>"frps.ini"
 ECHO log_max_days = %log_max_days% >>"frps.ini"
 
-if /i %version%==0.21.0 (
+if /i %version%==0.27.0 (
 ECHO max_ports_per_client = %max_ports_per_client% >>"frps.ini"
 ECHO token = %token% >>"frps.ini"
 ECHO allow_ports = %allow_ports% >>"frps.ini"
@@ -319,7 +319,7 @@ cd %~dp0
 if exist frps.exe goto run
 set lujing=%~dp0
 bitsadmin /reset /allusers
-bitsadmin /transfer frpc%version% /PRIORITY FOREGROUND "https://raw.githubusercontent.com/nwct/downloads/master/frp/windows-386/%version%/frps.exe" "%lujing%frps.exe"
+bitsadmin /transfer frpc%version% /PRIORITY FOREGROUND "http://www.lu8.win/downloads/frp/windows-386/%version%/frps.exe" "%lujing%frps.exe"
 goto start
 
 
