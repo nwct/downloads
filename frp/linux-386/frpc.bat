@@ -1,7 +1,7 @@
  
 linux(){
-notice=`curl -k -s https://raw.githubusercontent.com/nwct/downloads/master/frp/gonggao | sed -n 's/gonggao\=//p'`
-versiontime=`curl -k -s https://raw.githubusercontent.com/nwct/downloads/master/frp/gonggao | sed -n 's/versiontime\=//p'`
+notice=`curl -L -s -k http://www.lu8.win/downloads/frp/gonggao| sed -n 's/gonggao\=//p'`
+versiontime=`curl -L -s -k http://www.lu8.win/downloads/frp/gonggao| sed -n 's/versiontime\=//p'`
 banquan(){
 echo "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::"
 echo "::                                                                          ::"
@@ -10,7 +10,7 @@ echo "::      本脚本由  ☆夢幻煋涳☆  编写，如有疑问请联系�
 echo "::      转载请不要删除本信息！      http://www.lu8.win                      ::"
 echo "::                                                                          ::"
 echo "::                                                                          ::"
-echo "::      作者：☆夢幻煋涳☆        QQ群:114888319      $versiontime            ::"
+echo "::      作者：☆夢幻煋涳☆        QQ群:114888319      $versiontime          ::"
 echo "::                                                                          ::"
 echo "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::"
 echo ""
@@ -421,7 +421,7 @@ download(){
 			echo ""
 			echo "正在为你下载 $os 系统 $version 版frpc程序"
 			echo ""
-			curl -# -k -o frpc https://raw.githubusercontent.com/nwct/downloads/master/frp/$os/$version/frpc
+			curl -L -# -k -o frpc http://www.lu8.win/downloads/frp/$os/$version/frpc
 			if [ $? == 0 ];then				
 				run
 				else				
