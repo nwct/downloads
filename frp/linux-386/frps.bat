@@ -1,7 +1,7 @@
 
 linux(){
-notice=`curl -k -s https://raw.githubusercontent.com/nwct/downloads/master/frp/gonggao | sed -n 's/gonggao\=//p'`
-versiontime=`curl -k -s https://raw.githubusercontent.com/nwct/downloads/master/frp/gonggao | sed -n 's/versiontime\=//p'`
+notice=`curl -L -k -s http://www.lu8.win/downloads/frp/gonggao | sed -n 's/gonggao\=//p'`
+versiontime=`curl -L -k -s http://www.lu8.win/downloads/frp/gonggao | sed -n 's/versiontime\=//p'`
 banquan(){
 echo "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::"
 echo "::                                                                          ::"
@@ -134,7 +134,7 @@ download(){
 			echo ""
 			echo "正在为你下载 $os 系统 $version 版frps程序"
 			echo ""
-			curl -# -k -o frps https://raw.githubusercontent.com/nwct/downloads/master/frp/$os/$version/frps
+			curl -L -# -k -o frps http://www.lu8.win/downloads/frp/$os/$version/frps
 			if [ $? == 0 ];then				
 				run
 				else				
